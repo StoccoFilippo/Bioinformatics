@@ -1,0 +1,29 @@
+import pandas as pd
+import numpy as np  # Import numpy for initialization
+
+align = AlignIO.read("c:\\Users\\Filippo\\Desktop\\BioinformaticsPmmo\\lore.fas", "fasta")
+
+def frequency(align):
+    # Create an empty DataFrame with columns for amino acids
+    amino_acids = ['-']
+    df = pd.DataFrame(columns=amino_acids, data=np.zeros((len(align[0]), len(amino_acids))))
+
+    # Iterate through the alignment and count amino acids at each position
+    for a in range(len(align[0])):
+        for x in align[:, a]:
+            if x in amino_acids:
+                df.at[a, x] += 1
+            else:
+                # Add new amino acid to the DataFrame
+                amino_acids.append(x)
+                df[x] = 0
+                df.at[a, x] = 1
+    
+    #changes the index in order that the first aa is actually 1
+    df.index = df.index + 1
+
+    return df
+
+# Example usage (assuming 'align' is a valid MSA)
+risultato_1 = frequency(align)
+print("Count for the MSA:\n", risultato_1)
