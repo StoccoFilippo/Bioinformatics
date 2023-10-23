@@ -2,27 +2,5 @@
 
 
 Just hammering on the keyboard, awaiting an outcome.
-## Table of Contents
 
-- [About](#about)
-- [Demo](#demo)
-- [Features](#features)
-- [Usage](#usage)
-
-## About
-Counts any aligned string. The entry are automatically updated every given entry
-
-## Demo
-
-
-## Features
-
-
-## Usage
-
-
-```bash
-# Example installation commands
-$ git clone https://github.com/yourusername/repo.git
-$ cd repo
-$ npm install
+I'm working on a Python script that uses data from a multiple sequence alignment to color-code amino acids in a PDB structure. The script calculates amino acid frequency and conservation, allowing you to visualize the conservation patterns. This information can help identify conserved residues and their specific roles, such as their involvement in catalytic sites or interactions with other subunits. Additionally, the script generates a frequency table, which serves as the foundation for creating a sequence logo.
