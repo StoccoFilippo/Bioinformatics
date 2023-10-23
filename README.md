@@ -1,4 +1,4 @@
-# Colour a PDB file based on sequence identity
+# Color a PDB file based on sequence identity
 
 
 Just hammering on the keyboard, awaiting an outcome.
