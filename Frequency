@@ -7,10 +7,11 @@ import argparse
 from collections import Counter,defaultdict
 from numpy import log
 from Bio import AlignIO
+from Bio import PDB
 
 import numpy as np  # Import numpy for initialization
 
-align = AlignIO.read("c:\\Users\\Filippo\\Desktop\\BioinformaticsPmmo\\neifgbor.fas", "fasta")
+align = AlignIO.read("c:\\Users\\Filippo\\Desktop\\BioinformaticsPmmo\\AligmentMega.fas", "fasta")
 
 def frequency(align):
     # Create an empty DataFrame with columns for amino acids
@@ -34,8 +35,51 @@ def frequency(align):
     return df
 
 # Example usage (assuming 'align' is a valid MSA)
-risultato_1 = frequency(align)
-print("Count for the MSA:\n", risultato_1)
+frequency_table = frequency(align)
+# Iterate through each row to find the most frequent amino acid and its frequency percentage
+most_frequent_amino_acids = []
+identity = []
+
+for index, row in frequency_table.iterrows():
+    most_frequent_amino_acid = row.idxmax()
+    most_frequent_count = row.max()
+    total_count = row.sum()
+    identity_percentage = (most_frequent_count / total_count) * 100
+
+    most_frequent_amino_acids.append(most_frequent_amino_acid)
+    identity.append(identity_percentage)
+
+# Add new columns for the most frequent amino acid and its frequency percentage
+frequency_table['MostFrequentAminoAcid'] = most_frequent_amino_acids
+frequency_table['FrequencyPercentage'] = identity
+
+print(frequency_table)
+
+
+# Load the PDB file
+parser = PDB.PDBParser(QUIET=True)
+structure = parser.get_structure("my_protein", "c:\\Users\\Filippo\\Desktop\\BioinformaticsPmmo\\3rgb.fas")
+
+# Define a function to change the color of specific amino acids
+def change_amino_acid_color(structure, target_amino_acid, new_color):
+    for model in structure:
+        for chain in model:
+            for residue in chain:
+                if residue.get_resname() == target_amino_acid:
+                    for atom in residue:
+                        atom.set_bfactor(new_color)  # Set the B-factor as a representation of color
+
+# Change the color of all Cysteine (CYS) residues to red
+change_amino_acid_color(structure, "CYS", 1.0)  # Set B-factor to 1.0 for red
+
+# Save the modified structure to a new PDB file
+io = PDB.PDBIO()
+io.set_structure(structure)
+io.save("path/to/modified_color.pdb")
+
+
+
+
 
 
 
