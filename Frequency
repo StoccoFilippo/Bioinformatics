@@ -1,7 +1,16 @@
 import pandas as pd
+!pip install Bio
+import sys
+import os
+import time
+import argparse
+from collections import Counter,defaultdict
+from numpy import log
+from Bio import AlignIO
+
 import numpy as np  # Import numpy for initialization
 
-align = AlignIO.read("c:\\Users\\Filippo\\Desktop\\BioinformaticsPmmo\\lore.fas", "fasta")
+align = AlignIO.read("c:\\Users\\Filippo\\Desktop\\BioinformaticsPmmo\\neifgbor.fas", "fasta")
 
 def frequency(align):
     # Create an empty DataFrame with columns for amino acids
@@ -27,3 +36,6 @@ def frequency(align):
 # Example usage (assuming 'align' is a valid MSA)
 risultato_1 = frequency(align)
 print("Count for the MSA:\n", risultato_1)
+
+
+
