@@ -1,9 +1,20 @@
-import pandas as pd
+
 !pip install Bio
+!pip install logomaker
+!pip install pymsaviz
+
+import pandas as pd
 import sys
 import os
 import time
 import argparse
+import numpy as np
+import matplotlib.pyplot as plt
+%matplotlib inline 
+plt.ion()
+
+import logomaker as lm
+
 from collections import Counter,defaultdict
 from numpy import log
 from Bio import AlignIO
@@ -12,6 +23,9 @@ from Bio import PDB
 import numpy as np  # Import numpy for initialization
 
 align = AlignIO.read("c:\\Users\\Filippo\\Desktop\\BioinformaticsPmmo\\AligmentMega.fas", "fasta")
+
+from pymsaviz import MsaViz, get_msa_testdata
+msa_file = open('AligmentMega.fas')
 
 def frequency(align):
     # Create an empty DataFrame with columns for amino acids
@@ -36,6 +50,7 @@ def frequency(align):
 
 # Example usage (assuming 'align' is a valid MSA)
 frequency_table = frequency(align)
+frequency_table_2 = frequency(align)
 # Iterate through each row to find the most frequent amino acid and its frequency percentage
 most_frequent_amino_acids = []
 identity = []
@@ -50,6 +65,9 @@ for index, row in frequency_table.iterrows():
     else:
         identity_percentage = (most_frequent_count / total_count) * 100
 
+    if identity_percentage<80 :
+       identity_percentage = 0
+        
     most_frequent_amino_acids.append(most_frequent_amino_acid)
     identity.append(identity_percentage)
     
@@ -64,7 +82,7 @@ parser = PDB.PDBParser(QUIET=True)
 structure = parser.get_structure("my_protein", "c:\\Users\\Filippo\\Desktop\\BioinformaticsPmmo\\3rgb666.pdb")
 # Add frequency values as REMARK records
 
-# Iterate through the structure and assign frequency values
+ Iterate through the structure and assign frequency values
 i = 0  # Initialize the frequency index
 for model in structure:
     for chain in model:
@@ -82,4 +100,5 @@ io.set_structure(structure)
 io.save("c:\\Users\\Filippo\\Desktop\\BioinformaticsPmmo\\modified_color.pdb")
 
 
-
+mv = MsaViz(msa_file, wrap_length=60, show_grid=True, show_consensus=True)
+fig = mv.plotfig()
