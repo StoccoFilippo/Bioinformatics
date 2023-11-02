@@ -65,8 +65,7 @@ for index, row in frequency_table.iterrows():
     else:
         identity_percentage = (most_frequent_count / total_count) * 100
 
-    if identity_percentage<80 :
-       identity_percentage = 0
+    
         
     most_frequent_amino_acids.append(most_frequent_amino_acid)
     identity.append(identity_percentage)
