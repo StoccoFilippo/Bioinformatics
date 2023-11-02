@@ -15,3 +15,5 @@ Subsequently, the PDB file was modified in the `bf` field. In PyMol, amino acids
 Finally, the Multiple Sequence Alignment (MSA) visualization is obtained as shown here:
 
 ![image](https://github.com/StoccoFilippo/IdentityPDBVisualization/assets/148588396/da4c53f0-992a-484a-8802-c51cca84c848)
+
+For Pymol Visualization: spectrum b, blue_red, minimum=20, maximum=50 and select br. b<20
