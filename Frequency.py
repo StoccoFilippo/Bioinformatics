@@ -22,10 +22,10 @@ from Bio import PDB
 
 import numpy as np  # Import numpy for initialization
 
-align = AlignIO.read("c:\\Users\\Filippo\\Desktop\\BioinformaticsPmmo\\AligmentMega.fas", "fasta")
+align = AlignIO.read("c:\\Users\\yourlocation", "fasta")
 
 from pymsaviz import MsaViz, get_msa_testdata
-msa_file = open('AligmentMega.fas')
+msa_file = open('Yourfile.fas')
 
 def frequency(align):
     # Create an empty DataFrame with columns for amino acids
