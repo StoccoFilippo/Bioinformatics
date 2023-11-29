@@ -12,7 +12,7 @@ Subsequently, the PDB file was modified in the `bf` field. In PyMol, amino acids
 
 ![image](https://github.com/StoccoFilippo/IdentityPDBVisualization/assets/148588396/6a6339c4-c337-4110-8415-5f82abc8ea20)
 
-Finally, the Multiple Sequence Alignment (MSA) visualization is obtained as shown here:
+Finally, the Multiple Sequence Alignment (MSA) visualization of the desired range (in this case position 100-160) is obtained as shown here:
 
 ![image](https://github.com/StoccoFilippo/IdentityPDBVisualization/assets/148588396/da4c53f0-992a-484a-8802-c51cca84c848)
 
