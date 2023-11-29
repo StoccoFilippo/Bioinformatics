@@ -21,6 +21,8 @@ from Bio import PDB
 
 import numpy as np  # Import numpy for initialization
 
+#Insert aligned fasta sequence
+
 align = AlignIO.read("c:\\Users\\yourlocation", "fasta")
 
 from pymsaviz import MsaViz, get_msa_testdata
@@ -76,11 +78,13 @@ frequency_table['FrequencyPercentage'] = identity
 print(frequency_table)
 
 # Load the PDB file
+# NOTE: the PDB sequence has to have the same lenght of the aligment
+
 parser = PDB.PDBParser(QUIET=True)
 structure = parser.get_structure("my_protein", "c:\\Users\\Filippo\\Desktop\\BioinformaticsPmmo\\3rgb666.pdb")
-# Add frequency values as REMARK records
+# Add frequency values as bf records
 
- Iterate through the structure and assign frequency values
+#Iterate through the structure and assign frequency values
 i = 0  # Initialize the frequency index
 for model in structure:
     for chain in model:
@@ -95,7 +99,7 @@ for model in structure:
 # Save the modified structure to a new PDB file
 io = PDB.PDBIO()
 io.set_structure(structure)
-io.save("c:\\Users\\Filippo\\Desktop\\BioinformaticsPmmo\\modified_color.pdb")
+io.save("c:\\Users\\modified_color.pdb")
 
 
 mv = MsaViz(msa_file, wrap_length=60, show_grid=True, show_consensus=True)
