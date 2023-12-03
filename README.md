@@ -6,7 +6,7 @@ I'm currently working on a Python script that utilizes data from a multiple sequ
 ## Example:
 Using BLAST, 500 sequence of the studied enzyme was obtained. A Multiple Sequence Alignment (MSA) was compiled using Clustal algorithm. The obtained fasta sequence is used as imput for the pyton script. The frequency of the most prevalent amino acid for each position has been determined as displayed in the following table.
 
-![image](https://github.com/StoccoFilippo/IdentityPDBVisualization/assets/148588396/e5158e36-baf5-43a9-8792-bbd145208a4d)
+![image](https://github.com/StoccoFilippo/IdentityPDBVisualization/assets/148588396/b38ecba0-4e71-4428-ae64-606a134b9971)
 
 Subsequently, the PDB file was modified in the `bf` field. In PyMol, amino acids with an identity lower than 80 were selected (select br. b<80) and colored in gray. A gradient from blue to red was used to color amino acids with higher identity (spectrum b, blue_red, minimum=80, maximum=100), resulting in the following image:
 
