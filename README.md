@@ -21,3 +21,6 @@ Finally, the Multiple Sequence Alignment (MSA) visualization of the desired rang
 Here is an example of a metalloenzyme with three putative active sites (Cu_A, Cu_B, and Cu_C). Cu_A exhibits low conservation, suggesting it is likely not an active site.
 ![pMMOidentitysctivesite](https://github.com/StoccoFilippo/IdentityPDBVisualization/assets/148588396/1d7885bc-965a-4762-accd-6651243d0240)
 
+
+To add the bar corresponding to the conservation values, follow these steps: on the studies object click on action, and copy it to a new object (named, for example, obj01). Then, run "ramp_new color_bar, obj01, [min, max], [blue,white]. [min, max] representing the values of the b_factor chosen in the previous steps, and [blue, white] indicating the color scale chosen for visualization.
+
